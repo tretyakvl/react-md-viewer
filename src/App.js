@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
-import marked from 'marked'
+import Marked from 'marked'
+import { sanitize } from 'dompurify'
 import './App.css'
+
+Marked.setOptions({
+  sanitizer: sanitize,
+  gfm: true,
+  breaks: true,
+  headerIds: false
+})
 
 class App extends Component {
   constructor (props, context) {
@@ -15,7 +23,7 @@ class App extends Component {
   changeHandler (event) {
     this.setState({
       source: event.target.value,
-      parsed: marked.parse(event.target.value)
+      parsed: Marked.parse(event.target.value)
     })
   }
 
@@ -23,9 +31,7 @@ class App extends Component {
     return (
       <div>
         <textarea name='editor' id='editor' onChange={this.changeHandler} value={this.state.source} />
-        <div className='preview'>
-          {this.state.parsed}
-        </div>
+        <div className='preview' dangerouslySetInnerHTML={{ __html: this.state.parsed }} />
       </div>
     )
   }
