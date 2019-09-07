@@ -17,7 +17,9 @@ class App extends Component {
     this.state = {
       source: placeholder
     }
+    this.App = React.createRef()
     this.changeHandler = this.changeHandler.bind(this)
+    this.previewToggle = this.previewToggle.bind(this)
   }
 
   changeHandler (event) {
@@ -26,13 +28,27 @@ class App extends Component {
     })
   }
 
+  previewToggle (event) {
+    const PREVIEW_CLASS = 'App--detailed'
+
+    if (event.currentTarget.matches('.App__preview')) {
+      this.App.current.classList.add(PREVIEW_CLASS)
+    } else {
+      this.App.current.classList.remove(PREVIEW_CLASS)
+    }
+  }
+
   render () {
     return (
-      <div className='App'>
-        <div className='App__editor'>
+      <div className='App' ref={this.App}>
+        <div className='App__editor' onClick={this.previewToggle}>
           <textarea name='editor' id='editor' onChange={this.changeHandler} value={this.state.source} />
         </div>
-        <div className='preview' dangerouslySetInnerHTML={{ __html: Marked.parse(this.state.source) }} />
+        <div
+          className='App__preview'
+          onClick={this.previewToggle}
+          dangerouslySetInnerHTML={{ __html: Marked.parse(this.state.source) }}
+        />
       </div>
     )
   }
