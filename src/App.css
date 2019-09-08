@@ -85,18 +85,18 @@
 .App__preview code {
   padding: 0.2em;
 
+  color: #f08d49;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  line-height: 1.5;
   border-radius: 0.25em;
-  background-color: var(--bg-medium);
+  background-color: #2d2d2d;
 }
 
 .App__preview pre {
   min-width: min-content;
   padding: 0.5em 1.5em;
 
-  font-family: 'Consolas', 'Courier New', monospace;
-
   border-radius: 0.25em;
-  background-color: var(--bg-medium);
 }
 
 .App__preview pre code {

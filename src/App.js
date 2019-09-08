@@ -8,6 +8,7 @@ const renderer = new Marked.Renderer()
 renderer.link = (href, title, string) => {
   return `<a href="${href}" target="_blank" rel="noopener noreferrer">${string}</a>`
 }
+
 Marked.setOptions({
   sanitizer: sanitize,
   gfm: true,
