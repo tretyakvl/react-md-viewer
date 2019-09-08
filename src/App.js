@@ -4,11 +4,16 @@ import { sanitize } from 'dompurify'
 import placeholder from './placeholder'
 import './App.css'
 
+const renderer = new Marked.Renderer()
+renderer.link = (href, title, string) => {
+  return `<a href="${href}" target="_blank" rel="noopener noreferrer">${string}</a>`
+}
 Marked.setOptions({
   sanitizer: sanitize,
   gfm: true,
   breaks: true,
-  headerIds: false
+  headerIds: false,
+  renderer: renderer
 })
 
 class App extends Component {
@@ -50,6 +55,7 @@ class App extends Component {
         </div>
         <div
           className='App__preview'
+          id='preview'
           onClick={this.previewToggle}
           dangerouslySetInnerHTML={{ __html: Marked.parse(this.state.source) }}
         />
