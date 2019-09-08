@@ -28,6 +28,10 @@ class App extends Component {
     this.previewToggle = this.previewToggle.bind(this)
   }
 
+  componentDidUpdate () {
+    window.Prism.highlightAll()
+  }
+
   changeHandler (event) {
     this.setState({
       source: event.target.value
