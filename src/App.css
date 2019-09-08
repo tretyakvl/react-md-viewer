@@ -143,6 +143,22 @@
     flex-direction: row;
   }
 
+  .App--detailed .App__editor {
+    flex:  50%;
+
+    overflow: auto;
+  }
+
+  .App--detailed .App__editor textarea {
+    overflow: auto;
+  }
+
+  .App--detailed .App__preview {
+    flex: 50%;
+
+    overflow: auto;
+  }
+
   .App__editor {
     margin-right: 0.5em;
     margin-bottom: 0;
