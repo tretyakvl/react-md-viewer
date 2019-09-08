@@ -1,12 +1,21 @@
 @import-normalize;
 
+:root {
+  --bg-light: hsl(0, 0%, 95%);
+  --bg-medium: hsl(0, 0%, 90%);
+  --text-light: hsl(0, 0%, 30%);
+  --text-medium: hsl(0, 0%, 15%);
+}
+
 body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 
   font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.5;
 
-  box-sizing: border-box;
+  background-color: var(--bg-light);
 }
 
 *,
