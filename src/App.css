@@ -60,6 +60,14 @@
   overflow: auto;
 }
 
+.App__preview :first-child {
+  margin-top: 0;
+}
+
+.App__preview :last-child {
+  margin-bottom: 0;
+}
+
 .App__preview h1,
 .App__preview h2,
 .App__preview h3,
