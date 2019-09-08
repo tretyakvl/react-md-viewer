@@ -30,11 +30,15 @@ class App extends Component {
 
   previewToggle (event) {
     const PREVIEW_CLASS = 'App--detailed'
+    const BREAKPONT = 1100
+    const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
-    if (event.currentTarget.matches('.App__preview')) {
-      this.App.current.classList.add(PREVIEW_CLASS)
-    } else {
-      this.App.current.classList.remove(PREVIEW_CLASS)
+    if (vw < BREAKPONT) {
+      if (event.currentTarget.matches('.App__preview')) {
+        this.App.current.classList.add(PREVIEW_CLASS)
+      } else {
+        this.App.current.classList.remove(PREVIEW_CLASS)
+      }
     }
   }
 
